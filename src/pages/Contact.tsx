@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, MessageSquare, Send } from "lucide-react";
+import { Mail, MessageSquare, Send, MapPin } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -43,7 +43,7 @@ export default function Contact() {
               Get in touch
             </h1>
             <p className="text-lg text-muted-foreground">
-              Interested in Agrolumen? We'd love to hear from you. Fill out the form below and we'll respond within 48 hours.
+              Interested in Agrolumen? Whether you're a farmer, cooperative, or agribusiness—we'd love to hear from you.
             </p>
           </motion.div>
         </div>
@@ -81,11 +81,28 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-medium text-foreground mb-1">WhatsApp</h3>
+                    <a href="https://wa.me/254700000000" className="text-muted-foreground hover:text-primary transition-colors">
+                      +254 700 000 000
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-foreground mb-1">Location</h3>
                     <p className="text-muted-foreground">
-                      +XX XXX XXX XXXX
+                      Nairobi, Kenya
                     </p>
                   </div>
                 </div>
+              </div>
+
+              <div className="mt-8 p-4 bg-card rounded-xl border border-border">
+                <p className="text-sm text-muted-foreground">
+                  <strong className="text-foreground">Response time:</strong> We typically respond within 24–48 hours during business days.
+                </p>
               </div>
             </motion.div>
 
@@ -96,75 +113,69 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="lg:col-span-2"
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-6">
+              <div className="bg-card rounded-2xl border border-border p-6 md:p-8">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Name *</Label>
+                      <Input
+                        id="name"
+                        name="name"
+                        placeholder="Your full name"
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email *</Label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="you@example.com"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="grid sm:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="organisation">Organisation <span className="text-muted-foreground text-sm">(optional)</span></Label>
+                      <Input
+                        id="organisation"
+                        name="organisation"
+                        placeholder="Farm, cooperative, or company"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="role">Role <span className="text-muted-foreground text-sm">(optional)</span></Label>
+                      <Input
+                        id="role"
+                        name="role"
+                        placeholder="e.g. Farmer, Agronomist, Manager"
+                      />
+                    </div>
+                  </div>
                   <div className="space-y-2">
-                    <Label htmlFor="name">Name *</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      placeholder="Your name"
+                    <Label htmlFor="message">Message *</Label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      placeholder="Tell us about your needs, ask a question, or request a demo..."
+                      rows={5}
                       required
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email *</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="you@example.com"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="organisation">Organisation</Label>
-                    <Input
-                      id="organisation"
-                      name="organisation"
-                      placeholder="Your company or farm"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="role">Role</Label>
-                    <Input
-                      id="role"
-                      name="role"
-                      placeholder="e.g. Farmer, Agronomist, Manager"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="country">Country</Label>
-                  <Input
-                    id="country"
-                    name="country"
-                    placeholder="Your country"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="message">Message *</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    placeholder="Tell us about your needs or ask a question..."
-                    rows={5}
-                    required
-                  />
-                </div>
-                <Button type="submit" size="lg" disabled={isSubmitting}>
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      Send message
-                      <Send className="ml-2 h-4 w-4" />
-                    </>
-                  )}
-                </Button>
-              </form>
+                  <Button type="submit" size="lg" disabled={isSubmitting} className="w-full sm:w-auto">
+                    {isSubmitting ? (
+                      "Sending..."
+                    ) : (
+                      <>
+                        Send message
+                        <Send className="ml-2 h-4 w-4" />
+                      </>
+                    )}
+                  </Button>
+                </form>
+              </div>
             </motion.div>
           </div>
         </div>

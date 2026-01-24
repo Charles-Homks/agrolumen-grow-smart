@@ -9,6 +9,7 @@ import { FeaturesSection } from "@/components/home/FeaturesSection";
 import { WhyAISection } from "@/components/home/WhyAISection";
 import { TractionSection } from "@/components/home/TractionSection";
 import { FAQSection } from "@/components/home/FAQSection";
+import { FinalCTASection } from "@/components/home/FinalCTASection";
 
 const Index = () => {
   return (
@@ -23,6 +24,7 @@ const Index = () => {
       <WhyAISection />
       <TractionSection />
       <FAQSection />
+      <FinalCTASection />
     </Layout>
   );
 };

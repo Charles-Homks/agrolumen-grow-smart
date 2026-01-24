@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ImageIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { DemoMockup } from "@/components/demo/DemoMockup";
 
 export function TractionSection() {
   return (
@@ -21,35 +22,45 @@ export function TractionSection() {
             See it in action
           </h2>
           <p className="text-lg text-muted-foreground">
-            Explore how Agrolumen helps farmers make better decisions every day.
+            Here's what the Agrolumen experience looks like—from risk alerts to weekly planning.
           </p>
         </motion.div>
 
-        {/* Screenshot placeholders */}
+        {/* Demo Mockups */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          {[
-            { label: "Risk alert notification", aspect: "aspect-[4/3]" },
-            { label: "Weekly action plan", aspect: "aspect-[4/3]" },
-            { label: "Cooperative dashboard", aspect: "aspect-[4/3]" },
-          ].map((item, index) => (
-            <motion.div
-              key={item.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className={`${item.aspect} rounded-xl bg-card border border-border card-shadow flex flex-col items-center justify-center p-6`}
-            >
-              <ImageIcon className="h-12 w-12 text-muted-foreground/30 mb-3" />
-              <p className="text-sm text-muted-foreground text-center">{item.label}</p>
-            </motion.div>
-          ))}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0 }}
+          >
+            <DemoMockup type="risk-alert" size="md" />
+            <p className="text-center text-sm text-muted-foreground mt-3">Risk alerts keep you ahead of threats</p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <DemoMockup type="weekly-plan" size="md" />
+            <p className="text-center text-sm text-muted-foreground mt-3">Weekly plans tailored to your fields</p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <DemoMockup type="crop-check" size="md" />
+            <p className="text-center text-sm text-muted-foreground mt-3">AI analysis from a single photo</p>
+          </motion.div>
         </div>
 
         <div className="text-center">
           <Button variant="hero" size="lg" asChild>
             <Link to="/demo">
-              Watch full demo
+              Explore full demo
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
