@@ -1,27 +1,37 @@
 import { motion } from "framer-motion";
-import { MessageSquare, ShieldAlert, CloudSun, FileText } from "lucide-react";
+import { MessageSquare, ShieldAlert, CloudSun, FileText, Smartphone, Zap } from "lucide-react";
 
 const features = [
   {
-    icon: MessageSquare,
-    title: "WhatsApp-first guidance",
-    description: "Get recommendations where you already are. No new apps to learn.",
-    badge: "Roadmap",
+    icon: Smartphone,
+    title: "Mobile-first design",
+    description: "Works on any smartphone. Upload photos, check plans, and receive alerts wherever you are.",
   },
   {
     icon: ShieldAlert,
-    title: "Pest & disease risk alerts",
-    description: "Early warnings based on regional data and weather patterns.",
+    title: "Pest & disease alerts",
+    description: "Early warnings based on regional outbreak data, weather patterns, and conditions in your area.",
   },
   {
     icon: CloudSun,
     title: "Weather-aware planning",
-    description: "Recommendations that account for forecasts, not just current conditions.",
+    description: "Recommendations that account for 7-day forecasts—not just today's conditions.",
   },
   {
     icon: FileText,
     title: "Simple reports",
-    description: "Share progress with stakeholders in a format that makes sense.",
+    description: "Share progress with cooperatives, lenders, or stakeholders in a format they understand.",
+  },
+  {
+    icon: Zap,
+    title: "Instant AI analysis",
+    description: "Get crop health scores and recommendations in seconds, not days.",
+  },
+  {
+    icon: MessageSquare,
+    title: "WhatsApp integration",
+    description: "Receive guidance where you already are. No new apps to learn.",
+    badge: "Coming soon",
   },
 ];
 
@@ -40,11 +50,11 @@ export function FeaturesSection() {
             Key features
           </h2>
           <p className="text-lg text-muted-foreground">
-            Practical tools designed for the realities of farming.
+            Practical tools designed for the realities of farming—not the lab.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}

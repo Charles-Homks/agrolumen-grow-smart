@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import heroImage from "@/assets/hero-field.jpg";
 
 export function HeroSection() {
   return (
@@ -33,8 +34,7 @@ export function HeroSection() {
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-            Turn field photos, weather data, and crop insights into actionable weekly plans. 
-            Reduce waste, catch problems early, and grow with confidence.
+            Turn field photos, weather data, and crop insights into weekly action plans—so you catch problems early, reduce input waste, and grow with confidence.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -46,27 +46,36 @@ export function HeroSection() {
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
               <Link to="/demo">
-                <Play className="mr-2 h-5 w-5" />
                 View demo
               </Link>
             </Button>
           </div>
         </motion.div>
 
-        {/* Hero Image Placeholder */}
+        {/* Hero Image */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mt-16 md:mt-24 relative"
         >
-          <div className="relative mx-auto max-w-4xl rounded-2xl bg-gradient-to-b from-primary/10 to-primary/5 p-2">
-            <div className="rounded-xl bg-card border border-border overflow-hidden aspect-[16/9] flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="w-16 h-16 rounded-2xl hero-gradient mx-auto mb-4 flex items-center justify-center">
-                  <Play className="h-8 w-8 text-primary-foreground" />
+          <div className="relative mx-auto max-w-5xl rounded-2xl bg-gradient-to-b from-primary/10 to-primary/5 p-2">
+            <div className="rounded-xl overflow-hidden aspect-[16/9]">
+              <img 
+                src={heroImage} 
+                alt="Lush green agricultural field at sunrise with rows of healthy crops"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+                <div className="bg-background/90 backdrop-blur-sm rounded-lg px-4 py-3 card-shadow">
+                  <p className="text-sm font-medium text-foreground">Field Health: Excellent</p>
+                  <p className="text-xs text-muted-foreground">Last scanned: 2 hours ago</p>
                 </div>
-                <p className="text-muted-foreground">Product demo preview</p>
+                <div className="bg-primary/90 backdrop-blur-sm rounded-lg px-4 py-3 text-primary-foreground">
+                  <p className="text-sm font-medium">3 tasks this week</p>
+                  <p className="text-xs text-primary-foreground/80">View action plan →</p>
+                </div>
               </div>
             </div>
           </div>
