@@ -22,7 +22,7 @@ const whyNow = [
 
 const team = [
   {
-    name: "James Ochieng",
+    name: "Donatus Abbah",
     role: "Founder & CEO",
     bio: "Agricultural engineer turned AI product builder. 8 years in agritech across Kenya and Uganda. Previously led product at a climate-smart agriculture startup. Believes technology should serve farmers, not the other way around.",
   },
